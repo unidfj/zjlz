@@ -1,0 +1,398 @@
+@charset "UTF-8";
+/* 这里是全局样式在APP.VUE里面引用 */
+/* 使用了px2rem插件，按设计稿宽度750px，样式表中直接以px为单位 */
+/* 基础样式 */
+/*small 适用于一般情况下的 内容文字 及 注释性内容*/
+/*standard 适用于一般情况下的 主标题文字、按钮内字体、需要突出的副标题或内容文字*/
+/*middle 适用于“报价”页保险公司名称 及 需要突出的主标题文字*/
+/*large适用于顶部栏目名称、“我的”页面用户姓名、“消息”页主标题*/
+/*主色   tab bar icon 按钮 图案*/
+/*辅助色*/
+/*图案或背景渐变色*/
+/*正确、通过的内容或按钮*/
+/*标识性文字内容或其底色*/
+/*背景色*/
+/*tab bar 背景及深颜色背景上的文字*/
+/*边框的颜色*/
+/*主标题文字*/
+/*tab bar 文字、副标题文字以及内容文字*/
+/*注释性内容*/
+/*新信息提醒*/
+/*隔断颜色*/
+/* @layout-center-width: 92%;//宽度居中的默认值
+ * 块级元素本来有伸展性，只需设置内边距或者外边距，强烈建议此情境下不使用宽度
+ */
+a,
+div,
+footer,
+section,
+input,
+li,
+p,
+ul,
+dl,
+dd,
+dt,
+form,
+h1,
+h2,
+h3,
+h4,
+h5,
+span,
+form,
+textarea,
+button,
+select {
+  margin: 0;
+  padding: 0;
+  border: none;
+  background-color: transparent;
+  -webkit-tap-highlight-color: transparent;
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+}
+html,
+body {
+  margin: 0;
+  padding: 0;
+  position: relative;
+}
+input,
+select,
+textarea {
+  outline: 0;
+  -ms-appearance: none;
+  appearance: none;
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  color: inherit;
+  font-size: inherit;
+  font-family: inherit;
+  line-height: inherit;
+}
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none !important;
+  margin: 0;
+}
+input[type="number"] {
+  -moz-appearance: textfield;
+}
+html,
+a,
+button,
+input {
+  font-family: "Microsoft Yahei", "微软雅黑", "Helvetica";
+}
+ul,
+ol,
+dl,
+li {
+  list-style: none;
+}
+a {
+  text-decoration: none;
+  display: inline-block;
+  /*	width: 100%;
+	height: 100%;*/
+  color: inherit;
+}
+button:focus {
+  outline: 0;
+}
+img[src=""] {
+  opacity: 0;
+}
+/* 组件样式 */
+/* 一些全局的注释
+ * 设计图宽度为750px;
+ */
+/* 使用大写的PX是为了px2rem插件忽略这行样式，不改写为rem单位。
+ * 基于css大小写不敏感，px2rem大小写敏感
+ */
+html {
+  height: 100%;
+  -webkit-text-size-adjust: none;
+  /* 解决字号被chrome放大的问题
+     * 参考：https://segmentfault.com/a/1190000007177666#articleHeader6
+     *       https://github.com/jin5354/404forest/issues/33
+     * 或搜索关键字“font boosting”“Text Autosizer”“Font Inflation”
+     */
+}
+body {
+  height: 100%;
+  background-color: #333333;
+  -webkit-overflow-scrolling: touch;
+  font-size: 28px;
+}
+#app {
+  width: 100%;
+  height: 100%;
+  margin: 0 auto;
+  overflow: hidden;
+  background-color: #252436;
+  position: relative;
+}
+.page {
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+  background-color: #eeeeee;
+  display: box;
+  /* OLD - Android 4.4- */
+  display: -moz-box;
+  /* OLD - Firefox 19- (buggy but mostly works) */
+  display: -ms-flexbox;
+  /* TWEENER - IE 10 */
+  display: -webkit-flex;
+  /* NEW - Chrome */
+  display: -webkit-box;
+  /* OLD - iOS 6-, Safari 3.1-6 */
+  display: flex;
+  /* NEW, Spec - Opera 12.1, Firefox 20+ */
+  -webkit-box-orient: vertical;
+  -webkit-flex-direction: column;
+  -moz-flex-direction: column;
+  -ms-flex-direction: column;
+  -o-flex-direction: column;
+  flex-direction: column;
+}
+.page > .body {
+  -webkit-box-flex: 1;
+  -ms-flex: 1 1 0;
+  flex: 1 1 0;
+  overflow-x: hidden;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  z-index: 1;
+}
+.page > .body .panel {
+  display: block;
+  background-color: #ffffff;
+  overflow: hidden;
+}
+.page > .body .panel + .panel {
+  margin-top: 20px;
+}
+.page > .footer,
+.page > footer {
+  box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.1);
+  z-index: 2;
+  background-color: #ffffff;
+}
+/**********自定义栅格化布局样式，因为是在移动端使用，因此不定义sm、md、lg尺寸*********/
+/****总共****/
+.row-container {
+  width: 100%;
+}
+.row-container [class*='col-'] {
+  float: left;
+  min-height: 1px;
+}
+.row-container .row:before,
+.row-container .row:after {
+  content: "";
+  display: block;
+  clear: both;
+}
+.row-container .row .col-offset-1 {
+  margin-left: 8.3333%;
+}
+.row-container .row .col-offset-2 {
+  margin-left: 16.666%;
+}
+.row-container .row .col-offset-3 {
+  margin-left: 25%;
+}
+.row-container .row .col-offset-4 {
+  margin-left: 33.333%;
+}
+.row-container .row .col-offset-5 {
+  margin-left: 41.666%;
+}
+.row-container .row .col-offset-6 {
+  margin-left: 50%;
+}
+.row-container .row .col-offset-7 {
+  margin-left: 58.333%;
+}
+.row-container .row .col-offset-8 {
+  margin-left: 66.6666%;
+}
+.row-container .row .col-offset-9 {
+  margin-left: 75%;
+}
+.row-container .row .col-offset-10 {
+  margin-left: 83.333%;
+}
+.row-container .row .col-offset-11 {
+  margin-left: 91.666%;
+}
+.row-container .row .col-1 {
+  width: 8.3333%;
+}
+.row-container .row .col-2 {
+  width: 16.666%;
+}
+.row-container .row .col-3 {
+  width: 25%;
+}
+.row-container .row .col-4 {
+  width: 33.333%;
+}
+.row-container .row .col-5 {
+  width: 41.666%;
+}
+.row-container .row .col-6 {
+  width: 50%;
+}
+.row-container .row .col-7 {
+  width: 58.333%;
+}
+.row-container .row .col-8 {
+  width: 66.6666%;
+}
+.row-container .row .col-9 {
+  width: 75%;
+}
+.row-container .row .col-10 {
+  width: 83.333%;
+}
+.row-container .row .col-11 {
+  width: 91.666%;
+}
+.row-container .row .col-12 {
+  width: 100%;
+}
+/****自定义全局样式*****/
+i {
+  font-style: normal;
+}
+html,
+p,
+button {
+  color: white;
+  word-break: break-all;
+}
+.error-msg {
+  position: absolute;
+  bottom: 0;
+  color: red;
+  line-height: normal;
+  left: 30px;
+  font-size: 24px;
+}
+.error-border {
+  border: 1px solid red;
+}
+.btn {
+  width: 200px;
+  height: 68px;
+  line-height: 68px;
+  border-radius: 8px;
+  font-size: 32px;
+}
+.btn-default {
+  background-color: #44425A;
+}
+.btn-green {
+  background: linear-gradient(90deg, #6cea72 0%, #1ab800 100%);
+  background: -webkit-linear-gradient(90deg, #6cea72 0%, #1ab800 100%);
+}
+.btn-blue {
+  background: #3CFCAC;
+  color: #333;
+}
+.btn-red {
+  background: linear-gradient(90deg, #ff6060 0%, #fe2d2d 100%) !important;
+  background: -webkit-linear-linear-gradient(90deg, #ff6060 0%, #fe2d2d 100%) !important;
+}
+.btn-origin {
+  background: -webkit-linear-gradient(90deg, #f5be28 0%, #ff842a 100%);
+  background: linear-gradient(90deg, #f5be28 0%, #ff842a 100%);
+}
+.btn-detail {
+  width: 140px;
+  margin-bottom: 30px;
+}
+.btn-small {
+  width: 140px;
+}
+.tj-form {
+  margin: 30px;
+}
+.tj-form .form-item {
+  font-size: 16PX;
+  position: relative;
+}
+.tj-form .form-item label {
+  color: #DBD9EC;
+  display: inline-block;
+}
+.tj-form .form-item label.mar {
+  margin-bottom: 20px;
+}
+.tj-form .form-item input {
+  margin: 20px 0 50px;
+  background-color: #fff;
+  font-size: 14PX;
+  color: #333;
+  padding: 0 30px;
+}
+.tj-form .form-item input.file {
+  position: absolute;
+  width: 352px;
+  height: 210px;
+  margin: 0;
+  left: 0;
+  top: 60px;
+  opacity: 0;
+}
+.tj-form .form-item .img {
+  width: 352px;
+  height: 210px;
+  display: block;
+}
+.tj-form .form-item .img-code {
+  height: 68px;
+  border-radius: 8px;
+  margin: 20px 0 50px;
+  margin-left: 10px;
+}
+.tj-form .form-item .item-flex {
+  display: -webkit-flex;
+  /*新版本：Chrome*/
+  display: -moz-box;
+  /* Firefox */
+  display: -webkit-box;
+  /*老版本：iOS 6-, Safari 3.1-6*/
+  display: flex;
+  /*标准规范：Opera 12.1, Firefox 20+*/
+  align-items: center;
+}
+.tj-form .form-item .item-flex button {
+  margin: 20px 0 50px 30px;
+  flex: 0 0 228px;
+  height: 80px;
+  font-size: 14PX;
+}
+.tj-form .form-item .error {
+  position: absolute;
+  color: red;
+  font-size: 24px;
+  bottom: 0;
+  left: 0;
+}
+.tj-form .mar {
+  margin-bottom: 50px;
+}
+.tj-form .btn-submit {
+  width: 100%;
+  height: 44PX;
+}
+.no-msg {
+  text-align: center;
+  margin-top: 30px;
+}
